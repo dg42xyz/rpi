@@ -11,6 +11,7 @@ class rpi::docker {
 
   exec { 'Install docker':
     command => '/tmp/get-docker.sh',
+    returns => ['0', '100'],
     onlyif  => '/usr/bin/test -z `/usr/bin/which docker`',
     require => File['Docker convenience script'],
   }
