@@ -1,0 +1,43 @@
+{
+  "name": "dg-rpi",
+  "version": "0.1.0",
+  "author": "dg",
+  "summary": "Puppet module for my raspberry pi.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/dg42xyz/rpi",
+  "dependencies": [
+    {
+      "name": "puppet/systemd",
+      "version_requirement": "=4.0.1"
+    },
+    {
+      "name": "puppetlabs/apt",
+      "version_requirement": "=9.0.2"
+    },
+    {
+      "name": "puppetlabs/docker",
+      "version_requirement": "=6.0.2"
+    },
+    {
+      "name": "puppetlabs/reboot",
+      "version_requirement": "=4.3.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Raspian",
+      "operatingsystemrelease": [
+        "11"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 6.21.0 < 8.0.0"
+    }
+  ],
+  "pdk-version": "2.6.1",
+  "template-url": "pdk-default#2.7.1",
+  "template-ref": "tags/2.7.1-0-g9a16c87"
+}
