@@ -18,7 +18,7 @@ class rpi::puppet_server {
     content => 'raspberrypi',
   }
 
-  vcsrepo {'/home/pi/.puppetlabs/etc/code/environments/production/modules/rpi':
+  vcsrepo { '/home/pi/.puppetlabs/etc/code/environments/production/modules/rpi':
     ensure         => mirror,
     provider       => git,
     source         => 'https://github.com/dg42xyz/rpi.git',
