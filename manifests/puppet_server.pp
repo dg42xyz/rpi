@@ -1,7 +1,6 @@
 # @summary Configures the puppet server docker service.
 class rpi::puppet_server {
   file { [
-      '/home/pi/.puppetlabs/etc/code/environments/production/modules',
       '/home/pi/.puppetlabs/etc/code/environments/production/manifests',
       '/home/pi/.puppetlabs/etc/puppet/config',
     ]:
@@ -20,9 +19,10 @@ class rpi::puppet_server {
   }
 
   vcsrepo { '/home/pi/.puppetlabs/etc/code/environments/production/modules/rpi':
-    ensure   => mirror,
-    provider => git,
-    source   => 'git://github.com/dg42xyz/rpi.git',
+    ensure         => mirror,
+    provider       => git,
+    source         => 'git://github.com/dg42xyz/rpi.git',
+    safe_directory => true,
   }
 
   # docker run -d --name puppet \
