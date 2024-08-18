@@ -2,6 +2,8 @@
 class rpi::post_setup {
   file { '/home/pi/.puppetized':
     ensure => file,
+    owner  => 'pi',
+    group  => 'pi',
   }
 
   reboot { 'After first run':
