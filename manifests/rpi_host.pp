@@ -1,10 +1,5 @@
 # @summary Configuration for the raspberry pi host.
 class rpi::rpi_host {
-  file { '/etc/resolv.conf':
-    ensure => file,
-    source => 'puppet:///modules/rpi/rpi_host/resolv.conf',
-  }
-
   $pkgs = {
     git => 'present',
     vim => 'present',
