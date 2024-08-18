@@ -20,9 +20,11 @@ class rpi::puppet_server {
   }
 
   vcsrepo { '/home/pi/.puppetlabs/etc/code/environments/production/modules/rpi':
-    ensure   => mirror,
-    provider => git,
-    source   => 'git://github.com/dg42xyz/rpi.git',
+    ensure         => mirror,
+    provider       => git,
+    source         => 'git://github.com/dg42xyz/rpi.git',
+    revision       => 'aug2024fixes',
+    safe_directory => true,
   }
 
   # docker run -d --name puppet \
