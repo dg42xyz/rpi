@@ -22,7 +22,6 @@ class rpi::puppet_server {
     ensure         => mirror,
     provider       => git,
     source         => 'git://github.com/dg42xyz/rpi.git',
-    revision       => 'aug2024fixes',
     safe_directory => true,
   }
 
