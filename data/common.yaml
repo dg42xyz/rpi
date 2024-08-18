@@ -2,7 +2,4 @@
 docker::service_name: 'docker'
 docker::docker_group: 'dockerroot'
 docker::socket_group: 'dockerroot'
-os_patching::fact_upload: false
-os_patching::reboot_override: smart
-os_patching::puppet_binary: '/usr/local/bin/puppet'
 puppet::agent::runinterval: 7200

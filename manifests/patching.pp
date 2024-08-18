@@ -1,7 +1,11 @@
 # @summary Configures patching for the raspian os.
 # https://forge.puppet.com/modules/albatrossflavour/os_patching/readme
 class rpi::patching {
-  class { 'os_patching': }
+  class { 'os_patching':
+    fact_upload     => false,
+    reboot_override => 'smart',
+    puppet_binary   => '/usr/local/bin/puppet',
+  }
 
   schedule { 'maintenance_window':
     period  => weekly,
