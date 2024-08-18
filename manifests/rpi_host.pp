@@ -1,8 +1,8 @@
 # @summary Configuration for the raspberry pi host.
 class rpi::rpi_host {
   file { '/etc/resolv.conf':
-    ensure => 'file',
-    source => 'puppet:///modules/rpi/resolv.conf',
+    ensure => file,
+    source => 'puppet:///modules/rpi/rpi_host/resolv.conf',
   }
 
   $pkgs = {
@@ -21,16 +21,13 @@ class rpi::rpi_host {
   }
 
   file { '/etc/default/puppet':
-    ensure => 'file',
+    ensure => file,
   }
 
-  file { '/etc/systemd/system/puppet.service':
-    ensure => 'file',
-    source => 'puppet:///modules/rpi/puppet.service',
-  }
-
-  service { 'puppet':
-    ensure => 'running',
-    enable => true,
+  systemd::timer { 'puppet.timer':
+    timer_source   => 'puppet:///modules/rpi/rpi_host/puppet.timer',
+    service_source => 'puppet:///modules/rpi/rpi_host/puppet.service',
+    active         => true,
+    enable         => true,
   }
 }

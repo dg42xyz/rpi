@@ -1,12 +1,12 @@
 # @summary Configures docker.
 class rpi::docker {
   file { 'Docker convenience script':
-    ensure         => 'file',
+    ensure         => file,
     path           => '/tmp/get-docker.sh',
     source         => 'https://get.docker.com',
     mode           => 'u=rwx',
     checksum       => 'sha256',
-    checksum_value => 'f4b318605efd87bb2b717fc5f355b67ecf44828e9cd88758b6e9a136f8680a16',
+    checksum_value => '3829968f490ad98516d606c267465c51391d9102a12fb3515ce716d5ce1ec523',
   }
 
   exec { 'Install docker':
@@ -29,4 +29,6 @@ class rpi::docker {
     ensure => 'running',
     enable => true,
   }
+
+  include docker
 }
