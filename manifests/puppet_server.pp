@@ -1,7 +1,6 @@
 # @summary Configures the puppet server docker service.
 class rpi::puppet_server {
   file { [
-      '/home/pi/.puppetlabs/etc/code/environments/production/modules',
       '/home/pi/.puppetlabs/etc/code/environments/production/manifests',
       '/home/pi/.puppetlabs/etc/puppet/config',
     ]:
