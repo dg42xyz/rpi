@@ -16,11 +16,6 @@ class rpi::pihole {
     source => 'puppet:///modules/rpi/pihole/adlists.list',
   }
 
-  file { '/pihole/etc-pihole/setupVars.conf':
-    ensure => file,
-    source => 'puppet:///modules/rpi/pihole/setupVars.conf',
-  }
-
   # docker run -d --name pihole \
   #   -p 53:53/tcp -p 53:53/udp -p 80:80 \
   #   -v "/home/pi/pihole/etc-pihole:/etc/pihole" \
