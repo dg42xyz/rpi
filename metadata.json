@@ -1,6 +1,6 @@
 {
   "name": "dg-rpi",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "dg",
   "summary": "Puppet module for my raspberry pi.",
   "license": "Apache-2.0",
@@ -20,7 +20,15 @@
     },
     {
       "name": "puppetlabs/reboot",
-      "version_requirement": "=4.3.0"
+      "version_requirement": "=4.3.1"
+    },
+    {
+      "name": "puppetlabs/vcsrepo",
+      "version_requirement": "=6.1.0"
+    },
+    {
+      "name": "albatrossflavour/os_patching",
+      "version_requirement": "=0.21.0"
     }
   ],
   "operatingsystem_support": [

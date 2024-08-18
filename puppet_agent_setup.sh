@@ -1,23 +1,15 @@
 #!/bin/bash
 set -eux
 
-PUPPET_SERVER_IP="192.168.7.93"
-
 # Root check
 if [ "$(id -u)" -ne 0 ]; then
-        echo 'This script must be run by root' >&2
-        exit 1
+  echo 'This script must be run by root' >&2
+  exit 1
 fi
 
-# Update system
-apt update
-apt full-upgrade -y
-apt-get autoremove -y
-apt clean
+PUPPET_SERVER_IP=$(ip --brief address show | grep wlan0 | awk '{print substr($3,0,12)}')
 
-# Install puppet agent
-apt install ruby-full -y
-gem install puppet
+# Configure agent settings
 mkdir -p /etc/puppetlabs/puppet/
 touch /etc/puppetlabs/puppet/puppet.conf
 puppet config set server puppet --section main
