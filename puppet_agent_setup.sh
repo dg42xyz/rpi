@@ -7,7 +7,7 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
-PUPPET_SERVER_IP=$(ip --brief address show | grep wlan0 | awk '{print substr($3,0,12)}')
+PUPPET_SERVER_IP=$(ip --brief address show | grep eth0 | awk '{print substr($3,0,12)}')
 
 # Configure agent settings
 mkdir -p /etc/puppetlabs/puppet/
