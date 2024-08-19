@@ -19,7 +19,7 @@ class rpi::puppet_server {
   }
 
   vcsrepo { '/home/pi/.puppetlabs/etc/code/environments/production/modules/rpi':
-    ensure         => present,
+    ensure         => latest,
     provider       => git,
     source         => 'https://github.com/dg42xyz/rpi.git',
     revision       => 'master',
