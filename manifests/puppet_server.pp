@@ -22,6 +22,7 @@ class rpi::puppet_server {
     ensure         => present,
     provider       => git,
     source         => 'https://github.com/dg42xyz/rpi.git',
+    revision       => 'master',
     owner          => 'pi',
     group          => 'pi',
     safe_directory => true,
