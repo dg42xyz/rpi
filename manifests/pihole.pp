@@ -17,11 +17,12 @@ class rpi::pihole {
   }
 
   docker_network { 'pihole':
-    ensure   => present,
-    driver   => 'macvlan',
-    subnet   => '192.168.1.0/24',
-    gateway  => '192.168.1.1',
-    ip_range => '192.168.1.17/32',
+    ensure           => present,
+    driver           => 'macvlan',
+    subnet           => '192.168.1.0/24',
+    gateway          => '192.168.1.1',
+    ip_range         => '192.168.1.17/32',
+    extra_parameters => ['-o parent=eth0'],
   }
 
   # docker run -d --name pihole \
