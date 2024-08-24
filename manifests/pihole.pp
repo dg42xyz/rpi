@@ -16,6 +16,14 @@ class rpi::pihole {
     source => 'puppet:///modules/rpi/pihole/adlists.list',
   }
 
+  docker_network { 'pihole':
+    ensure   => present,
+    driver   => 'macvlan',
+    subnet   => '192.168.1.0/24',
+    gateway  => '192.168.1.1',
+    ip_range => '192.168.1.17/32',
+  }
+
   # docker run -d --name pihole \
   #   -p 53:53/tcp -p 53:53/udp -p 80:80 \
   #   -v "/home/pi/pihole/etc-pihole:/etc/pihole" \
@@ -26,7 +34,7 @@ class rpi::pihole {
   #   pihole/pihole:latest
   docker::run { 'pihole':
     image    => 'pihole/pihole',
-    ports    => ['53:53/tcp', '53:53/udp', '80:80'],
+    net      => ['pihole'],
     volumes  => [
       '/pihole/etc-pihole:/etc/pihole',
       '/pihole/etc-dnsmasq.d:/etc/dnsmasq.d',
