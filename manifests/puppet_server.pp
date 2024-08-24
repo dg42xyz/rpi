@@ -29,11 +29,6 @@ class rpi::puppet_server {
     force          => true,
   }
 
-  # docker run -d --name puppet \
-  #   --hostname puppet -p 8140:8140 \
-  #   -v /home/pi/.puppetlabs/etc/code:/etc/puppetlabs/code \
-  #   -v /home/pi/.puppetlabs/etc/puppet:/etc/puppetlabs/puppet \
-  #   voxpupuli/container-puppetserver
   docker::run { 'puppet':
     image           => 'voxpupuli/container-puppetserver',
     ports           => ['8140:8140'],
